@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAB di LIECH - Contenuti Extra</title>
+    <style>
+        /* Variabili CSS */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --bg-light: #f8f9fa;
+            --bg-dark: #2c3e50;
+        }
+
+        /* Stile base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Componenti UI */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 0;
+            text-align: center;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/500');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+        }
+
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+
+        /* Sezioni */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+
+        /* Carte di download */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .download-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-footer {
+            padding: 1rem 1.5rem;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .file-info {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* About */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Form di contatto */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-top: 1.5rem;
+        }
+
+        /* Login Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>TAB di LIECH</h1>
+            <p>Risorse esclusive per i nostri clienti</p>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Benvenuto nell'Area Contenuti Extra</h1>
+            <p>Grazie per aver acquistato il nostro notebook per tablature di chitarra. Qui puoi trovare risorse aggiuntive esclusive per migliorare la tua esperienza.</p>
+            <a href="#downloads" class="btn">Scopri i Contenuti Extra</a>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section id="downloads">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contenuti Scaricabili</h2>
+            </div>
+            <div class="download-grid">
+                <!-- Download Card 1 -->
+                <div class="download-card">
+                    <div class="card-image">
+                        <img src="/api/placeholder/400/320" alt="TAB di LIECH Blank Guitar Tab">
+                    </div>
+                    <div class="card-content">
+                        <h3>TAB di LIECH Blank Guitar Tab</h3>
+                        <p>Foglio pentagramma vuoto per le tue composizioni, formato 8.625 x 11.25 pollici.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="file-info">PDF · 125 KB</span>
+                        <a href="#" class="btn btn-accent download-btn" data-file="tab-di-liech-blank">Scarica</a>
+                    </div>
+                </div>
+                <!-- Download Card 2 -->
+                <div class="download-card">
+                    <div class="card-image">
+                        <img src="/api/placeholder/400/320" alt="Scale Pentatoniche">
+                    </div>
+                    <div class="card-content">
+                        <h3>Scale Pentatoniche Complete</h3>
+                        <p>Guide visive per tutte le posizioni delle scale pentatoniche sulla tastiera.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="file-info">PDF · 350 KB</span>
+                        <a href="#" class="btn btn-accent download-btn" data-file="scale-pentatoniche">Scarica</a>
+                    </div>
+                </div>
+                <!-- Download Card 3 -->
+                <div class="download-card">
+                    <div class="card-image">
+                        <img src="/api/placeholder/400/320" alt="Esercizi di Riscaldamento">
+                    </div>
+                    <div class="card-content">
+                        <h3>Esercizi di Riscaldamento</h3>
+                        <p>10 esercizi essenziali per il riscaldamento quotidiano delle dita.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="file-info">PDF · 275 KB</span>
+                        <a href="#" class="btn btn-accent download-btn" data-file="esercizi-riscaldamento">Scarica</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background-color: #f5f5f5;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Il Nostro Prodotto</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="TAB di LIECH Notebook">
+                </div>
+                <div class="about-text">
+                    <h3>Progettato da Musicisti per Musicisti</h3>
+                    <p>Il TAB di LIECH è un notebook professionale creato specificamente per chitarristi che vogliono annotare facilmente le loro idee, riff e composizioni.</p>
+                    <p>Realizzato con carta di alta qualità e una rilegatura che permette al quaderno di rimanere aperto sul leggio, il nostro prodotto è diventato lo strumento preferito di numerosi musicisti professionisti.</p>
+                    <p>Ogni pagina è stata progettata con la giusta spaziatura per rendere la scrittura delle tablature il più comoda possibile, consentendoti di concentrarti sulla musica anziché sulla formattazione.</p>
+                    <br>
+                    <a href="#" class="btn">Scopri di più sul prodotto</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contattaci</h2>
+            </div>
+            <div class="contact-form">
+                <p style="margin-bottom: 1.5rem;">Hai domande o suggerimenti sui nostri prodotti? Compila il modulo sottostante per metterti in contatto con noi.</p>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Oggetto</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Messaggio</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Invia Messaggio</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>TAB di LIECH</h3>
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#downloads">Download</a>
+                <a href="#about">Chi Siamo</a>
+                <a href="#contact">Contatti</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <p class="copyright">© <span id="current-year">2025</span> TAB di LIECH. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Accesso Riservato</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-code">Codice Prodotto</label>
+                    <input type="text" id="login-code" name="login-code" required>
+                    <small style="display: block; margin-top: 0.5rem; color: #777;">Puoi trovare il tuo codice all'interno della copertina del notebook.</small>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Accedi</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Aggiorna l'anno corrente nel footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Modal di login
+        const modal = document.getElementById('loginModal');
+        const downloadBtns = document.querySelectorAll('.download-btn');
+        const closeBtn = document.querySelector('.close-btn');
+        
+        // Apri il modal quando si clicca su un pulsante di download
+        downloadBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'block';
+                // Memorizza quale file si sta cercando di scaricare
+                sessionStorage.setItem('requestedFile', this.getAttribute('data-file'));
+            });
+        });
+        
+        // Chiudi il modal quando si clicca sulla X
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        
+        // Chiudi il modal quando si clicca all'esterno
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Gestione del form di login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const code = document.getElementById('login-code').value;
+            
+            // Qui dovresti implementare la verifica con un backend
+            // Per questa demo, simuliamo una verifica semplice
+            if (code.length > 3) {
+                console.log('Login riuscito!');
+                
+                // Simuliamo il download
+                const fileName = sessionStorage.getItem('requestedFile');
+                alert(`Download del file "${fileName}" iniziato. In una versione reale, il file verrebbe scaricato.`);
+                
+                // Chiudi il modal
+                modal.style.display = 'none';
+            } else {
+                alert('Codice prodotto non valido. Per favore controlla e riprova.');
+            }
+        });
+        
+        // Gestione del form di contatto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Qui dovresti implementare l'invio a un backend
+            // Per questa demo, simuliamo un invio riuscito
+            alert('Grazie per averci contattato! Ti risponderemo il prima possibile.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
